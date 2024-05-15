@@ -1,0 +1,10 @@
+.NavClassItem {
+  transition: all 0.5s ease;
+}
+
+.NavClassItem.hiding {
+  height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+}

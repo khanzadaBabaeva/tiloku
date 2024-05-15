@@ -1,0 +1,66 @@
+.pdf-viewer-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  --scale-factor: 1;
+}
+:root {
+  --scale-factor: 1;
+}
+.pdf-document {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  transform-style: preserve-3d;
+}
+
+.react-pdf__Page {
+  display: flex;
+}
+
+.react-pdf__Page canvas {
+  height: auto !important;
+  width: 30vw !important;
+}
+.video-player {
+  width: 60vw !important;
+  height: 30vw !important;
+}
+
+.controls {
+  margin-top: 10px;
+}
+
+.controls button {
+  margin-right: 10px;
+}
+.textLayer,
+.annotationLayer {
+  display: none;
+}
+/* Add these styles to your style.css file */
+
+.book-container {
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+  transform-origin: center left;
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+.pdf-page {
+  transform-style: preserve-3d;
+}
+.pdf-page .react-pdf__Page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.pdf-page.prev-flip {
+  transform: rotateY(180deg) scale(-1, 1);
+}
