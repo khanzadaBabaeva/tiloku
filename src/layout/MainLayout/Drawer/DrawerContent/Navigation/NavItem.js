@@ -24,7 +24,7 @@ import { activeVideo, openBook, openPage } from "store/reducers/actions";
 // ==============================|| NAVIGATION - LIST ITEM ||============================== //
 
 const NavItem = ({ item, level }) => {
-  const { id } = useParams();
+  const { id, chapterId } = useParams();
   const [hide, setHide] = useState(id ? true : false);
   const theme = useTheme();
   const dispatch = useDispatch();
@@ -55,7 +55,7 @@ const NavItem = ({ item, level }) => {
     dispatch(activeItem({ openItem: itemId === openItem ? null : itemId }));
 
     dispatch(openBook({ openedBook: item?.book }));
-    dispatch(openPage({ openedPage: 1 }));
+    if (!chapterId) dispatch(openPage({ openedPage: 1 }));
     dispatch(activeVideo({ openVideo: false }));
   };
 

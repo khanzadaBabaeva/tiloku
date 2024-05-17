@@ -48,13 +48,13 @@ const MainLayout = () => {
       <Header open={open} handleDrawerToggle={handleDrawerToggle} />
       <Drawer open={open} handleDrawerToggle={handleDrawerToggle} />
       <Box
-        component="main"
         sx={{
           width: "100%",
           minHeight: "100vh",
           flexGrow: 1,
           p: { xs: 2, sm: 3 },
           position: "relative",
+          overflow: "hidden",
         }}
       >
         <Box

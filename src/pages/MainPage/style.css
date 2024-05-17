@@ -1,0 +1,37 @@
+.animation {
+  position: relative;
+  width: 50%;
+  height: 200px;
+}
+
+.globe,
+.books,
+.clock {
+  position: absolute;
+  animation: move 5s infinite alternate;
+}
+
+.globe {
+  bottom: 0;
+  left: 0;
+}
+
+.books {
+  bottom: 0;
+  right: 0;
+}
+
+.clock {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@keyframes move {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-20px);
+  }
+}

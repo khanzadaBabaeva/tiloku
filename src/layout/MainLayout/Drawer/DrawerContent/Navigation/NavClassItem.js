@@ -18,7 +18,7 @@ import { activeVideo, openPage } from "store/reducers/actions";
 import NavChapterItem from "./NavChapterItem";
 
 const NavClassItem = ({ item, level, index }) => {
-  const { id, chapterId } = useParams();
+  const { id, chapterId, subChapterId } = useParams();
 
   const theme = useTheme();
   const dispatch = useDispatch();
@@ -53,7 +53,7 @@ const NavClassItem = ({ item, level, index }) => {
       dispatch(
         activeChapter({ openChapter: item.id === openChapter ? null : item.id })
       );
-      dispatch(openPage({ openedPage: item?.page }));
+      if (!subChapterId) dispatch(openPage({ openedPage: item?.page }));
       dispatch(activeVideo({ openVideo: false }));
     }
     // eslint-disable-next-line

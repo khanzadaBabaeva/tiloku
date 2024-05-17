@@ -5,16 +5,13 @@ import { Box, Container, Typography, Button } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import Logo from "components/Logo";
 import BookIconFilled from "assets/images/icons/book-icon-filled";
+import AnimatedMenu from "./AnimatedMenu";
 
 const MainPage = () => {
   const theme = useTheme();
   return (
-    <Box>
-      <Box
-        position="relative"
-        zIndex={1}
-        sx={{ minHeight: "100vh", overflow: "hidden" }}
-      >
+    <Box sx={{ overflow: "hidden" }}>
+      <Box position="relative" zIndex={1} sx={{ minHeight: "100vh" }}>
         <Container maxWidth="md">
           <Box
             display="flex"
@@ -120,36 +117,7 @@ const MainPage = () => {
           />
         </Box>
       </Box>
-      <Box backgroundColor="primary.main" position="relative" zIndex={1}>
-        <Container maxWidth="md">
-          <Box display="flex" py={6}>
-            <Box sx={{ flexGrow: 1, height: "100%" }}>
-              <Typography color="white" variant="h4">
-                Видеосабактар
-              </Typography>
-              <Typography color="white" variant="body1">
-                Баардык темалар боюнча видеосабактар
-              </Typography>
-            </Box>
-            <Box sx={{ flexGrow: 1, height: "100%" }}>
-              <Typography color="white" variant="h4">
-                Көнүгүүлөр
-              </Typography>
-              <Typography color="white" variant="body1">
-                Маалымат
-              </Typography>
-            </Box>
-            <Box sx={{ flexGrow: 1, height: "100%" }}>
-              <Typography color="white" variant="h4">
-                Тесттер
-              </Typography>
-              <Typography color="white" variant="body1">
-                Маалымат
-              </Typography>
-            </Box>
-          </Box>
-        </Container>
-      </Box>
+      <AnimatedMenu />
     </Box>
   );
 };

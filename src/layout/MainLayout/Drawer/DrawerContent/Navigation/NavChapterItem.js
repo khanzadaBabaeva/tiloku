@@ -1,5 +1,5 @@
 import { forwardRef, useEffect } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 // material-ui
@@ -12,7 +12,6 @@ import { activeVideo, openPage } from "store/reducers/actions";
 
 const NavChapterItem = ({ item, level, index, parentIndex }) => {
   const theme = useTheme();
-  const { subChapterId } = useParams();
   const dispatch = useDispatch();
   const { pathname } = useLocation();
 
@@ -32,15 +31,15 @@ const NavChapterItem = ({ item, level, index, parentIndex }) => {
     listItemProps = { component: "a", href: item.url, target: itemTarget };
   }
 
-  const isSelected =
-    openSubChapter === item.id || item.id.toString().endsWith(subChapterId);
+  const isSelected = openSubChapter === item.id;
 
   // active menu item on page load
   useEffect(() => {
     if (pathname.includes(item.url)) {
       dispatch(activeSubChapter({ openSubChapter: item.id }));
-      dispatch(openPage({ openedPage: item?.page }));
+      dispatch(openPage({ openedPage: item.page }));
       dispatch(activeVideo({ openVideo: false }));
+      console.log(item);
     }
     // eslint-disable-next-line
   }, [pathname]);
